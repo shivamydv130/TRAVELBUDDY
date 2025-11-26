@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TravelBuddy — Your Smart Online Tour Guide</title>
+
+  <!-- keep your folder casing as you had it -->
+  <link rel="stylesheet" href="CSS/style.css">
+
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/a2d9b3f2b4.js" crossorigin="anonymous" defer></script>
+</head>
+<body>
+  <header class="site-header sticky">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">TravelBuddy</a>
+
+      <nav class="site-nav" id="siteNav">
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="packages.html">Packages</a>
+        <a href="guides.html">Guides</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- ADD: user display (JS toggles visibility) -->
+        <span id="userDisplay" style="display:none;color:var(--text-light);font-weight:600;margin-right:10px;"></span>
+
+        <!-- Login / Signup (shown when not logged in) -->
+        <button class="btn ghost" id="loginBtn">Login</button>
+        <button class="btn primary" id="signupBtn">Sign up</button>
+
+        <!-- ADD: Logout (shown when logged in) -->
+        <button class="btn ghost" id="logoutBtn" style="display:none;margin-left:8px;">Logout</button>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <img src="assets/images/hero.jpg" alt="travel banner" class="hero-img">
+      <div class="hero-overlay">
+        <div class="container hero-content">
+          <h1>TravelBuddy — Your Smart Online Tour Guide</h1>
+          <p>Explore handpicked destinations, packages and local guides. Plan smart, travel easy.</p>
+
+          <form id="searchForm" class="search-bar" onsubmit="return false;">
+            <input id="searchInput" type="search" placeholder="Where do you want to go? (e.g. Goa, Manali)" />
+            <select id="monthSelect">
+              <option value="">Best time (optional)</option>
+              <option>Jan - Mar</option>
+              <option>Apr - Jun</option>
+              <option>Jul - Sep</option>
+              <option>Oct - Dec</option>
+            </select>
+            <button class="btn primary" id="searchBtn" type="button">Search</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popular Destinations -->
+    <section class="container section">
+      <div class="section-head">
+        <h2>Popular Destinations</h2>
+        <p>Discover top places loved by travelers.</p>
+      </div>
+      <div class="grid destinations-grid" id="popularDestinations"></div>
+    </section>
+
+    <!-- Featured Packages -->
+    <section class="container section">
+      <div class="section-head"><h2>Featured Tour Packages</h2></div>
+      <div class="carousel" id="featuredPackages"></div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="container section">
+      <div class="section-head"><h2>What Travelers Say</h2></div>
+      <div class="testimonials" id="testimonials"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <h3>TravelBuddy</h3>
+        <p>Plan smarter, travel happier. Contact: contact@travelbuddy.example | +91 98765 43210</p>
+      </div>
+      <div>
+        <h4>Follow Us</h4>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="container small muted">© <span id="year"></span> TravelBuddy — All rights reserved.</div>
+  </footer>
+
+  <!-- Modal: Auth (Login/Signup) -->
+  <div class="modal" id="authModal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true">
+      <button class="modal-close" data-close>&times;</button>
+
+      <div class="auth-forms">
+        <form id="loginForm" class="auth" aria-label="login form">
+          <h3>Login</h3>
+          <input id="loginEmail" type="email" placeholder="Email" required />
+          <input id="loginPass" type="password" placeholder="Password" required />
+          <button class="btn primary" id="doLogin" type="button">Login</button>
+        </form>
+
+        <form id="signupForm" class="auth hidden" aria-label="signup form">
+          <h3>Sign up</h3>
+          <input id="signupName" type="text" placeholder="Full name" required />
+          <input id="signupEmail" type="email" placeholder="Email" required />
+          <input id="signupPass" type="password" placeholder="Password" required />
+          <button class="btn primary" id="doSignup" type="button">Create account</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- WhatsApp floating button -->
+  <a class="whatsapp-fab" href="https://wa.me/919305497800" target="_blank" aria-label="WhatsApp chat">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- keep your js path -->
+  <script src="js/app.js" defer></script>
+</body>
+</html>
